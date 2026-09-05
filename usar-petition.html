@@ -525,7 +525,7 @@ body.admin-mode footer{display:none}
 .admin-back-link:hover{text-decoration:underline}
 
 #adminView main.container{min-height:60vh;padding-top:26px;padding-bottom:44px}
-#adminView .admin-card{max-width:820px;margin:0 auto}
+#adminView .admin-card{max-width:1040px;margin:0 auto}
 #adminView .forms-card{max-width:660px}
 #adminView .admin-title{font-weight:500;font-size:1.5rem;margin:0 0 4px;color:#202124}
 #adminView .admin-login{padding:6px 0 4px}
@@ -604,14 +604,120 @@ body.admin-mode footer{display:none}
 }
 #adminView .btn-ghost:hover:not(:disabled){background:#e7dff6}
 
+/* -- admin dashboard sections -- */
+#adminView .admin-tabs{
+  display:flex;gap:0;border-bottom:2px solid #dadce0;margin-bottom:24px;
+}
+#adminView .admin-tab{
+  flex:none;padding:12px 22px;font-weight:500;font-size:.92rem;
+  background:transparent;border:none;border-bottom:3px solid transparent;
+  color:#5f6368;cursor:pointer;transition:color .15s,border-color .15s;
+}
+#adminView .admin-tab:hover{color:#202124}
+#adminView .admin-tab.active{color:#673ab7;border-bottom-color:#673ab7;font-weight:600}
+
+#adminView .admin-section{display:none}
+#adminView .admin-section.active{display:block}
+
+#adminView .sig-table{width:100%;border-collapse:collapse;font-size:.88rem}
+#adminView .sig-table th{
+  text-align:left;padding:10px 12px;
+  font-weight:600;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;
+  color:#5f6368;border-bottom:2px solid #dadce0;background:#f8f6fc;
+}
+#adminView .sig-table td{
+  padding:10px 12px;border-bottom:1px solid #eee;vertical-align:middle;
+}
+#adminView .sig-table tr:hover td{background:#f8f6fc}
+#adminView .sig-table .sig-thumb{
+  width:100px;height:auto;border:1px solid #dadce0;border-radius:4px;
+  background:#fff;padding:1px;
+}
+#adminView .sig-table .sig-no-img{color:#9aa0a6;font-size:.78rem;font-style:italic}
+
+#adminView .admin-section-title{
+  font-weight:500;font-size:1.3rem;margin:0 0 6px;color:#202124;
+}
+#adminView .admin-section-desc{color:#5f6368;font-size:.88rem;margin:0 0 18px}
+
+#adminView .pet-admin-card{
+  background:#fff;border:1px solid #dadce0;border-radius:8px;
+  box-shadow:0 1px 2px rgba(60,64,67,.08),0 1px 3px 1px rgba(60,64,67,.06);
+  margin-bottom:16px;overflow:hidden;
+}
+#adminView .pet-admin-header{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:16px 18px;border-bottom:1px solid #f0f0f0;
+}
+#adminView .pet-admin-header-left{flex:1;min-width:0}
+#adminView .pet-admin-header-left h3{
+  margin:0;font-size:1rem;font-weight:600;color:#202124;
+  line-height:1.3;word-break:break-word;
+}
+#adminView .pet-admin-meta{font-size:.82rem;color:#5f6368;margin-top:4px}
+#adminView .pet-admin-actions{flex:none;display:flex;gap:8px;align-items:center}
+
+#adminView .auth-toggle{
+  display:inline-flex;align-items:center;gap:8px;padding:7px 16px;
+  border-radius:999px;border:2px solid #dadce0;font-weight:600;font-size:.82rem;
+  cursor:pointer;transition:all .2s;
+}
+#adminView .auth-toggle.auth-on{background:#e6f4ea;border-color:#34a853;color:#1e7e34}
+#adminView .auth-toggle.auth-off{background:#fce8e6;border-color:#ea4335;color:#c5221f}
+
+#adminView .pet-admin-body{padding:16px 18px}
+#adminView .pet-admin-bar{
+  height:10px;border-radius:5px;background:#e8e8e8;overflow:hidden;margin:8px 0;
+}
+#adminView .pet-admin-bar-fill{
+  height:100%;border-radius:5px;transition:width .4s ease;
+  background:repeating-linear-gradient(-45deg,#673ab7 0 6px,#5e35b1 6px 12px);
+}
+#adminView .pet-admin-stats{font-size:.82rem;color:#5f6368;margin-bottom:4px}
+
+#adminView .pet-signers-toggle{
+  margin-top:12px;padding:8px 0;background:none;border:none;
+  font-weight:500;font-size:.85rem;color:#673ab7;cursor:pointer;
+  display:flex;align-items:center;gap:6px;
+}
+#adminView .pet-signers-toggle:hover{text-decoration:underline}
+
+#adminView .pet-signers-list{
+  margin-top:10px;border:1px solid #eee;border-radius:6px;overflow:hidden;
+}
+#adminView .pet-signer{
+  display:flex;align-items:center;gap:12px;padding:10px 14px;
+  border-bottom:1px solid #f0f0f0;font-size:.85rem;
+}
+#adminView .pet-signer:last-child{border-bottom:none}
+#adminView .pet-signer-no{
+  flex:none;width:28px;height:28px;border-radius:50%;
+  background:#673ab7;color:#fff;font-weight:600;font-size:.75rem;
+  display:grid;place-items:center;
+}
+#adminView .pet-signer-info{flex:1;min-width:0}
+#adminView .pet-signer-info strong{color:#202124}
+#adminView .pet-signer-info span{color:#5f6368;font-size:.8rem}
+#adminView .pet-signer-sig{
+  flex:none;width:80px;height:auto;border:1px solid #dadce0;
+  border-radius:4px;background:#fff;padding:1px;
+}
+#adminView .pet-admin-empty{color:#5f6368;padding:16px;text-align:center}
+
 @media print{
   body.admin-mode{background:#fff}
   body.admin-mode .admin-topbar{display:none}
   #adminView .admin-toolbar{display:none}
+  #adminView .admin-tabs{display:none}
   #adminView .load-row{display:none}
   #adminView .footer-admin{display:none}
+  #adminView .auth-toggle{display:none}
+  #adminView .pet-signers-toggle{display:none}
+  #adminView .pet-admin-card{break-inside:avoid}
   #adminView main.container{max-width:100%;padding:0}
   #adminView .entry{box-shadow:none;border:1px solid #999}
+  #adminView .sig-table td,#adminView .sig-table th{font-size:.78rem;padding:6px 8px}
+  #adminView .admin-section{display:block !important}
 }
 
 /* ------- toasts / confetti / live region ------- */
@@ -744,7 +850,7 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
 
       <!-- MAIN PETITION -->
       <section aria-labelledby="signTitle" style="margin-top:46px">
-        <h2 class="section-title"><span class="no">// 01</span> Sign the Main Petition</h2>
+        <h2 class="section-title">Petition for Ethernet</h2>
 
         <div class="sign-success" id="signSuccess" role="status">
           <div class="big">SIGNATURE LOCKED IN</div>
@@ -802,7 +908,7 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
 
       <!-- UPCOMING PETITIONS -->
       <section aria-labelledby="feedTitle">
-        <h2 class="section-title"><span class="no">// 02</span> Upcoming Petitions</h2>
+        <h2 class="section-title">Upcoming Petitions</h2>
         <p style="color:var(--muted);margin:0 0 22px;font-size:.92rem">
           Residents have spun targeted campaigns off the main petition. Pick one, add your
           signature, or start your own below.
@@ -863,8 +969,8 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
       <div id="adminContent" class="admin-card" hidden>
         <div class="admin-toolbar">
           <div>
-            <h2 class="admin-title" id="adminTitle">Applicants</h2>
-            <p class="hint">Load every applicant, export as CSV, or print the full petition.</p>
+            <h2 class="admin-title" id="adminTitle">Admin Dashboard</h2>
+            <p class="hint">Manage signatures, authorize petitions, and track campaign progress.</p>
           </div>
           <div class="toolbar-actions">
             <button class="btn-ghost" id="exportCsvBtn">Export CSV</button>
@@ -873,13 +979,22 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
           </div>
         </div>
 
-        <div class="load-row">
-          <button class="btn-ghost" id="loadBtn">Load applicants</button>
+        <div class="admin-tabs" id="adminTabs">
+          <button class="admin-tab active" data-tab="ethernet">Petition for Ethernet</button>
+          <button class="admin-tab" data-tab="upcoming">Ongoing Petitions</button>
         </div>
 
-        <p class="error hidden" id="adminListErr" role="alert"></p>
+        <!-- Section A: Petition for Ethernet Signatures -->
+        <div class="admin-section active" id="sectionEthernet">
+          <p class="hint" style="margin-bottom:14px" id="ethernetHint">All submitted signatures for the main Ethernet petition.</p>
+          <div class="print-area" id="adminList"></div>
+        </div>
 
-        <div class="print-area" id="adminList"></div>
+        <!-- Section B: Ongoing Petitions Authorization & Tracking -->
+        <div class="admin-section" id="sectionUpcoming">
+          <p class="hint" style="margin-bottom:14px" id="upcomingHint">Authorize, moderate, and track all user-generated upcoming petitions.</p>
+          <div id="adminUpcomingList"></div>
+        </div>
 
         <div class="footer-admin">
           <a href="#" id="backLinkBottom">&#8592; Back to petition</a>
@@ -939,6 +1054,57 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
   </div>
 </div>
 
+<!-- SIGN THIS PETITION MODAL -->
+<div class="modal" id="signPetitionModal" role="dialog" aria-modal="true" aria-labelledby="signPetitionModalTitle" hidden>
+  <div class="modal-backdrop" data-action="close-sign-modal"></div>
+  <div class="modal-window">
+    <div class="modal-head">
+      <h2 id="signPetitionModalTitle">Sign This Petition</h2>
+      <button class="modal-close" type="button" data-action="close-sign-modal">X&nbsp;CLOSE</button>
+    </div>
+    <p class="hint-mono" style="margin:0 0 18px" id="signPetitionContext">ADD YOUR SIGNATURE TO THIS CAMPAIGN.</p>
+
+    <form id="signPetitionForm" novalidate>
+      <div class="form-grid" style="max-width:none">
+        <div class="field">
+          <label for="spName">Full Name <span class="req" aria-hidden="true">*</span></label>
+          <input class="input" id="spName" name="name" type="text" maxlength="80" autocomplete="name" required placeholder="e.g. Aman Kumar" />
+          <span class="field-err" id="errSpName" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="spEnroll">Roll / Enrollment No. <span class="req" aria-hidden="true">*</span></label>
+          <input class="input" id="spEnroll" name="enrollment" type="text" maxlength="25" autocomplete="off" required placeholder="e.g. 04714803123" />
+          <span class="field-err" id="errSpEnroll" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="spEmail">Email <span class="req" aria-hidden="true">*</span></label>
+          <input class="input" id="spEmail" name="email" type="email" maxlength="120" autocomplete="email" required placeholder="you@example.com" />
+          <span class="field-err" id="errSpEmail" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="spRoom">Room No. <span class="req" aria-hidden="true">*</span></label>
+          <input class="input" id="spRoom" name="room" type="text" maxlength="10" autocomplete="off" required placeholder="e.g. 304" />
+          <span class="field-err" id="errSpRoom" role="alert"></span>
+        </div>
+        <div class="field full">
+          <label>Digital Signature <span class="req" aria-hidden="true">*</span></label>
+          <p class="hint-mono" style="margin:2px 0 0">DRAW WITH MOUSE / FINGER / STYLUS &#8212; YOUR REAL MARK.</p>
+          <div class="canvas-wrap">
+            <canvas id="signPetitionCanvas" class="sig-canvas" width="520" height="180" aria-label="Digital signature pad for this petition"></canvas>
+          </div>
+          <div class="sig-actions">
+            <button type="button" class="btn btn-ghost btn-sm" id="signPetitionClear">CLEAR SIGNATURE</button>
+          </div>
+          <span class="field-err" id="errSpSig" role="alert"></span>
+        </div>
+      </div>
+      <div class="sign-row" style="justify-content:flex-end">
+        <button type="submit" class="btn btn-primary btn-lg" id="signPetitionBtn">&#9889;&nbsp; SIGN THIS PETITION</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <script>
 (function () {
   'use strict';
@@ -976,7 +1142,15 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
         title: 'Fix the non-functional geysers & leaking washrooms in Block B',
         facilities: ['🚿 Sanitation & Washrooms'],
         desc: 'Four geysers dead since August. Rooms B-201 to B-230 report leakage and sewage smell from attached washrooms. Daily cleaning suspended for weeks.',
-        count: 162,
+        targetGoal: 200,
+        authorized: true,
+        signatures: [
+          { id: 'ws-1', name: 'Deepak Verma', enrollment: '04714803101', email: 'deepakv@ipu.ac.in', room: 'B-204', sig: null, ts: Date.now() - 28 * 3600e3 },
+          { id: 'ws-2', name: 'Arjun Mehta', enrollment: '04714803102', email: 'arjunm@ipu.ac.in', room: 'B-212', sig: null, ts: Date.now() - 27 * 3600e3 },
+          { id: 'ws-3', name: 'Sahil Gupta', enrollment: '04714803103', email: 'sahilg@ipu.ac.in', room: 'B-219', sig: null, ts: Date.now() - 26 * 3600e3 },
+          { id: 'ws-4', name: 'Nikhil Jain', enrollment: '04714803104', email: 'nikhilj@ipu.ac.in', room: 'B-225', sig: null, ts: Date.now() - 25 * 3600e3 },
+          { id: 'ws-5', name: 'Varun Sharma', enrollment: '04714803105', email: 'varuns@ipu.ac.in', room: 'B-230', sig: null, ts: Date.now() - 24 * 3600e3 }
+        ],
         created: Date.now() - 30 * 3600e3
       },
       {
@@ -984,7 +1158,13 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
         title: 'Restore standard food quality & kitchen hygiene in the mess',
         facilities: ['🍲 Mess & Food Quality'],
         desc: 'Meal quality silently downgraded from standard to basic in July. Reinstate menus and run a visible kitchen hygiene audit.',
-        count: 98,
+        targetGoal: 150,
+        authorized: true,
+        signatures: [
+          { id: 'ms-1', name: 'Ravi Kumar', enrollment: '04714803201', email: 'ravik@ipu.ac.in', room: 'C-108', sig: null, ts: Date.now() - 5 * 3600e3 },
+          { id: 'ms-2', name: 'Tushar Dubey', enrollment: '04714803202', email: 'tushard@ipu.ac.in', room: 'C-115', sig: null, ts: Date.now() - 4.5 * 3600e3 },
+          { id: 'ms-3', name: 'Aditya Raj', enrollment: '04714803203', email: 'adityar@ipu.ac.in', room: 'C-122', sig: null, ts: Date.now() - 4 * 3600e3 }
+        ],
         created: Date.now() - 4 * 3600e3,
         isNew: true
       }
@@ -1002,6 +1182,12 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
       parsed.signatures = Array.isArray(parsed.signatures) ? parsed.signatures : [];
       parsed.signatures.forEach(function (s, i) { if (!s.id) s.id = 'sig-' + i + '-' + s.ts; });
       parsed.upcoming = Array.isArray(parsed.upcoming) ? parsed.upcoming : [];
+      parsed.upcoming.forEach(function (p) {
+        if (!Array.isArray(p.signatures)) p.signatures = [];
+        if (typeof p.targetGoal !== 'number' || p.targetGoal < 1) p.targetGoal = GOAL;
+        if (p.authorized === undefined) p.authorized = true;
+        if (typeof p.authorized !== 'boolean') p.authorized = false;
+      });
       return parsed;
     } catch (e) {
       return JSON.parse(JSON.stringify(seedState));
@@ -1037,7 +1223,7 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
   }
   var extraSigned = extraSignedList();
 
-  var mainCount = function () { return state.base + state.signatures.length; };
+  var mainCount = function () { return state.signatures.length; };
 
   /* ============ helpers ============ */
   function esc(v) {
@@ -1087,15 +1273,14 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
     setTimeout(function () { wrap.innerHTML = ''; }, 2600);
   }
 
-  /* ============ digital signature canvas ============ */
-  var sig = (function () {
-    var canvas = document.getElementById('sigCanvas');
+  /* ============ digital signature canvas (reusable factory) ============ */
+  function createSigPad(canvas) {
     var ctx = canvas.getContext('2d');
     var CW = 520, CH = 180;
     var dpr = Math.max(1, window.devicePixelRatio || 1);
     canvas.width = CW * dpr;
     canvas.height = CH * dpr;
-    ctx.scale(dpr, dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.lineWidth = 2.5;
@@ -1108,11 +1293,13 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
 
     function getPos(e) {
       var rect = canvas.getBoundingClientRect();
+      var sw = canvas.width / dpr;
+      var sh = canvas.height / dpr;
       var cx = e.touches ? e.touches[0].clientX : e.clientX;
       var cy = e.touches ? e.touches[0].clientY : e.clientY;
       return {
-        x: (cx - rect.left) * (CW / rect.width),
-        y: (cy - rect.top) * (CH / rect.height)
+        x: (cx - rect.left) * (sw / rect.width),
+        y: (cy - rect.top) * (sh / rect.height)
       };
     }
 
@@ -1128,7 +1315,7 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
 
     canvas.addEventListener('pointerdown', function (e) {
       e.preventDefault();
-      canvas.setPointerCapture(e.pointerId);
+      try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
       drawing = true;
       var p = getPos(e);
       current = [p];
@@ -1157,12 +1344,22 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
     }
     canvas.addEventListener('pointerup', stop);
     canvas.addEventListener('pointercancel', stop);
+    canvas.addEventListener('pointerleave', stop);
 
     return {
       clear: function () {
         strokes = [];
         current = [];
         redraw();
+      },
+      reset: function () {
+        this.clear();
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = '#14110d';
+        ctx.fillStyle = '#14110d';
       },
       isBlank: function () {
         if (!strokes.length) return true;
@@ -1177,12 +1374,15 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
         return canvas.toDataURL('image/png');
       }
     };
-  })();
+  }
 
-  document.getElementById('sigClear').addEventListener('click', function () {
-    sig.clear();
+  var sig = createSigPad(document.getElementById('sigCanvas'));
+  function resetSigPad() {
+    sig.reset();
     document.getElementById('errSig').textContent = '';
-  });
+  }
+
+  document.getElementById('sigClear').addEventListener('click', resetSigPad);
 
   /* ============ counter ============ */
   function animateNumber(el, from, to, dur, cb) {
@@ -1398,7 +1598,9 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
       title: title,
       facilities: facs,
       desc: desc,
-      count: 0,
+      targetGoal: GOAL,
+      authorized: false,
+      signatures: [],
       created: Date.now(),
       isNew: true
     });
@@ -1413,22 +1615,26 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
       p.setAttribute('aria-checked', 'false');
     });
 
-    toast('NEW PETITION LAUNCHED — GET IT SPREAD');
+    toast('PETITION LAUNCHED — AWAITS ADMIN AUTHORIZATION BEFORE GOING PUBLIC');
     burstConfetti(26);
     document.getElementById('feed').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   /* ============ upcoming feed ============ */
   function upcomingSignedLocal(id) { return extraSigned.indexOf(id) !== -1; }
+  function petSigCount(p) { return p.signatures ? p.signatures.length : 0; }
 
   function renderFeed() {
     var feed = document.getElementById('feed');
-    if (!state.upcoming.length) {
+    var visible = state.upcoming.filter(function (p) { return p.authorized === true; });
+    if (!visible.length) {
       feed.innerHTML = '<p class="admin-empty">No upcoming petitions yet — start one below.</p>';
       return;
     }
-    feed.innerHTML = state.upcoming.map(function (p) {
-      var pct = Math.min(100, Math.round((p.count / GOAL) * 100));
+    feed.innerHTML = visible.map(function (p) {
+      var count = petSigCount(p);
+      var goal = typeof p.targetGoal === 'number' ? p.targetGoal : GOAL;
+      var pct = Math.min(100, Math.round((count / goal) * 100));
       var chips = p.facilities.map(function (f) { return '<span class="x-chip">' + esc(f) + '</span>'; }).join('');
       var stamp = p.isNew ? '<span class="new-stamp">Fresh</span>' : '';
       var signed = upcomingSignedLocal(p.id) ? '<span class="signed-state">&#10003; Signed by you</span>' : '';
@@ -1437,21 +1643,15 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
         stamp,
         '<div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline">',
         '<h3>' + esc(p.title) + '</h3>',
-        '<span class="x-meta">' + fmt(p.count) + '/' + fmt(GOAL) + '</span>',
+        '<span class="x-meta">' + fmt(count) + ' / ' + fmt(goal) + ' Signatures</span>',
         '</div>',
         '<div class="x-card-fac">' + chips + '</div>',
         '<p class="x-desc">' + esc(p.desc) + '</p>',
-        '<div class="x-progress"><strong>' + fmt(p.count) + '</strong> signatures &middot; ' + timeAgo(p.created) +
-          ' &middot; CAPACITY TARGET ' + fmt(GOAL) + '</div>',
+        '<div class="x-progress"><strong>' + fmt(count) + ' / ' + fmt(goal) + '</strong> Signatures &middot; ' + timeAgo(p.created) + '</div>',
         '<div class="x-bar"><i style="width:' + pct + '%"></i></div>',
         '<div class="x-actions">',
         '<button type="button" class="btn btn-red btn-sm" data-action="open-sign" ' + (signed ? 'disabled' : '') + '>&#9889; I SIGN THIS</button>',
         signed,
-        '</div>',
-        '<div class="x-sign-form" data-role="sign-form">',
-        '<input class="input" data-id="x-name" placeholder="Full Name" aria-label="Full name for this petition" />',
-        '<input class="input" data-id="x-room" placeholder="Room No." aria-label="Room number" />',
-        '<button type="button" class="btn btn-sm" data-action="confirm-sign">CONFIRM SIGN</button>',
         '</div>',
         '</article>'
       ].join('');
@@ -1460,43 +1660,139 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
 
   document.getElementById('feed').addEventListener('click', function (e) {
     var openBtn = e.target.closest('[data-action="open-sign"]');
-    if (openBtn) {
-      var card = e.target.closest('.xcard');
-      var form = card.querySelector('[data-role="sign-form"]');
-      var was = form.classList.contains('show');
-      document.querySelectorAll('[data-role="sign-form"].show').forEach(function (f) { f.classList.remove('show'); });
-      if (!was) {
-        form.classList.add('show');
-        var nm = card.querySelector('[data-id="x-name"]');
-        if (nm) nm.focus();
-      }
+    if (!openBtn || openBtn.disabled) return;
+    var card = e.target.closest('.xcard');
+    var id = card.getAttribute('data-id');
+    openSignPetitionModal(id);
+  });
+
+  /* ============ sign this petition modal ============ */
+  var signModal = document.getElementById('signPetitionModal');
+  var signPet = null;
+  var signPad = createSigPad(document.getElementById('signPetitionCanvas'));
+  var signLastFocused = null;
+
+  function findUpcomingPetition(id) {
+    var found = null;
+    state.upcoming.forEach(function (p) { if (p.id === id) found = p; });
+    return found;
+  }
+
+  function openSignPetitionModal(id) {
+    var pet = findUpcomingPetition(id);
+    if (!pet) return;
+    if (upcomingSignedLocal(id)) { toast('You already signed this petition.', true); return; }
+    signPet = pet;
+    signLastFocused = document.activeElement;
+
+    document.getElementById('signPetitionModalTitle').textContent = 'Sign This Petition';
+    document.getElementById('signPetitionContext').textContent = 'ADD YOUR SIGNATURE TO: ' + pet.title.toUpperCase();
+    document.getElementById('signPetitionForm').reset();
+    var errs = ['errSpName', 'errSpEnroll', 'errSpEmail', 'errSpRoom', 'errSpSig'];
+    errs.forEach(function (id2) { document.getElementById(id2).textContent = ''; });
+
+    signPad.reset();
+    signModal.hidden = false;
+    signModal.classList.add('open');
+    document.body.classList.add('modal-open');
+    document.getElementById('spName').focus();
+    document.addEventListener('keydown', signTrapKey);
+  }
+
+  function closeSignPetitionModal() {
+    signModal.classList.remove('open');
+    signModal.hidden = true;
+    document.body.classList.remove('modal-open');
+    document.removeEventListener('keydown', signTrapKey);
+    if (signLastFocused && signLastFocused.focus) signLastFocused.focus();
+    signPet = null;
+  }
+
+  function signTrapKey(e) {
+    if (e.key === 'Escape') { closeSignPetitionModal(); return; }
+    if (e.key !== 'Tab') return;
+    var focusables = signModal.querySelectorAll('button, input, textarea, [href]');
+    if (!focusables.length) return;
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  signModal.addEventListener('click', function (e) {
+    if (e.target.closest('[data-action="close-sign-modal"]')) closeSignPetitionModal();
+  });
+
+  document.getElementById('signPetitionClear').addEventListener('click', function () {
+    signPad.reset();
+    document.getElementById('errSpSig').textContent = '';
+  });
+
+  document.getElementById('signPetitionForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!signPet) return;
+    if (upcomingSignedLocal(signPet.id)) { toast('You already signed this petition.', true); closeSignPetitionModal(); return; }
+
+    document.getElementById('errSpName').textContent = '';
+    document.getElementById('errSpEnroll').textContent = '';
+    document.getElementById('errSpEmail').textContent = '';
+    document.getElementById('errSpRoom').textContent = '';
+    document.getElementById('errSpSig').textContent = '';
+
+    var name = document.getElementById('spName').value.trim();
+    var enrollment = document.getElementById('spEnroll').value.trim();
+    var email = document.getElementById('spEmail').value.trim().toLowerCase();
+    var room = document.getElementById('spRoom').value.trim();
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    var ok = true;
+    if (name.length < 3) { document.getElementById('errSpName').textContent = 'Enter your full name (min 3 characters).'; ok = false; }
+    if (!enrollment) { document.getElementById('errSpEnroll').textContent = 'Enter your roll / enrollment number.'; ok = false; }
+    if (!emailRe.test(email)) { document.getElementById('errSpEmail').textContent = 'Enter a valid email address.'; ok = false; }
+    if (!room) { document.getElementById('errSpRoom').textContent = 'Enter your room number.'; ok = false; }
+    if (signPad.isBlank()) { document.getElementById('errSpSig').textContent = 'Draw your signature before submitting.'; ok = false; }
+    if (!ok) return;
+
+    if (signedEmailsList.indexOf(email) !== -1) {
+      toast('This email already signed the main petition.', true);
       return;
     }
 
-    var confirmBtn = e.target.closest('[data-action="confirm-sign"]');
-    if (!confirmBtn) return;
-    var c = e.target.closest('.xcard');
-    var id = c.getAttribute('data-id');
-    var name = c.querySelector('[data-id="x-name"]').value.trim();
-    var room = c.querySelector('[data-id="x-room"]').value.trim();
-    if (name.length < 3) { toast('Enter your name first.', true); return; }
-    if (!room) { toast('Enter your room number.', true); return; }
-    if (upcomingSignedLocal(id)) { toast('You already signed this petition.', true); return; }
+    if (!Array.isArray(signPet.signatures)) signPet.signatures = [];
+    signPet.signatures.push({
+      id: 't-' + nowIso() + '-' + Math.random().toString(36).slice(2, 6),
+      name: name,
+      enrollment: enrollment,
+      email: email,
+      room: room,
+      sig: signPad.getDataUrl(),
+      ts: Date.now()
+    });
 
-    var pet = null;
-    state.upcoming.forEach(function (p) { if (p.id === id) pet = p; });
-    if (!pet) return;
-
-    pet.count += 1;
-    extraSigned.push(id);
+    extraSigned.push(signPet.id);
     saveExtraSigned(extraSigned);
     saveState();
 
-    var shortTitle = pet.title.length > 42 ? pet.title.slice(0, 42) + '...' : pet.title;
+    var shortTitle = signPet.title.length > 42 ? signPet.title.slice(0, 42) + '...' : signPet.title;
     toast('SIGNED +1 — ' + shortTitle);
     burstConfetti(18);
     renderFeed();
+    closeSignPetitionModal();
+    setTimeout(function () {
+      signSuccess(shortTitle);
+    }, 120);
   });
+
+  function signSuccess(title) {
+    var box = document.getElementById('signSuccess');
+    box.querySelector('.big').textContent = 'UPCOMING PETITION SIGNED';
+    box.querySelectorAll('p')[0].textContent = 'Your signature is locked in for: "' + title + '".';
+    box.querySelectorAll('p')[1].textContent = 'Counted on that petition card — keep spreading it.';
+    box.classList.remove('show');
+    void box.offsetWidth;
+    box.classList.add('show');
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 
   /* ============ admin view (Google Forms style, like the old admin site) ============ */
   var ADMIN_USER = 'somarshi';
@@ -1556,11 +1852,6 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
     toast('SIGNED OUT');
   });
 
-  document.getElementById('loadBtn').addEventListener('click', function () {
-    syncAll(false);
-    toast('LOADED ' + state.signatures.length + ' APPLICANTS');
-  });
-
   document.getElementById('printBtn').addEventListener('click', function () {
     window.print();
   });
@@ -1590,41 +1881,138 @@ footer .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:
     toast('CSV EXPORTED');
   });
 
-  function renderAdmin() {
-    var list = state.signatures.slice().reverse();
-    var count = state.signatures.length;
-    document.getElementById('adminTitle').textContent = 'Applicants' + (count ? ' (' + count + ')' : '');
-    document.getElementById('adminChip').textContent = count + ' response' + (count === 1 ? '' : 's');
-    document.getElementById('adminListErr').classList.add('hidden');
+  function adminTab(name) {
+    document.querySelectorAll('#adminTabs .admin-tab').forEach(function (t) {
+      t.classList.toggle('active', t.getAttribute('data-tab') === name);
+    });
+    document.getElementById('sectionEthernet').classList.toggle('active', name === 'ethernet');
+    document.getElementById('sectionUpcoming').classList.toggle('active', name === 'upcoming');
+  }
 
-    var container = document.getElementById('adminList');
+  document.querySelectorAll('#adminTabs .admin-tab').forEach(function (t) {
+    t.addEventListener('click', function () {
+      adminTab(t.getAttribute('data-tab'));
+      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  function renderAdmin() {
+    var count = state.signatures.length;
+    document.getElementById('adminTitle').textContent = 'Admin Dashboard';
+    document.getElementById('adminChip').textContent = count + ' signature' + (count === 1 ? '' : 's') + ' on Ethernet';
+
+    /* ---------- Section A: Petition for Ethernet signatures table ---------- */
+    var list = state.signatures.slice().reverse();
+    var ethernetEl = document.getElementById('adminList');
     if (!list.length) {
-      container.innerHTML = '<p class="empty">No applicants yet.</p>';
+      ethernetEl.innerHTML = '<p class="empty">No signatures yet for the Petition for Ethernet.</p>';
+    } else {
+      ethernetEl.innerHTML =
+        '<table class="sig-table"><thead><tr>' +
+        '<th>#</th><th>Full Name</th><th>Roll / Enrollment No.</th><th>Email</th><th>Room No.</th><th>Digital Signature</th>' +
+        '</tr></thead><tbody>' +
+        list.map(function (s, i) {
+          var sigHtml = s.sig
+            ? '<img class="sig-thumb" src="' + esc(s.sig) + '" alt="Signature of ' + esc(s.name) + '" />'
+            : '<span class="sig-no-img">NO IMAGE (SEED)</span>';
+          return '<tr>' +
+            '<td>' + (list.length - i) + '</td>' +
+            '<td>' + esc(s.name) + '</td>' +
+            '<td>' + esc(s.enrollment) + '</td>' +
+            '<td>' + esc(s.email) + '</td>' +
+            '<td>' + esc(s.room) + '</td>' +
+            '<td>' + sigHtml + '</td>' +
+            '</tr>';
+        }).join('') +
+        '</tbody></table>';
+    }
+
+    /* ---------- Section B: Ongoing Petitions authorization & tracking ---------- */
+    var upcomingEl = document.getElementById('adminUpcomingList');
+    if (!state.upcoming.length) {
+      upcomingEl.innerHTML = '<p class="pet-admin-empty">No upcoming petitions yet.</p>';
+    } else {
+      upcomingEl.innerHTML = state.upcoming.map(function (p) {
+        var countN = petSigCount(p);
+        var goal = typeof p.targetGoal === 'number' ? p.targetGoal : GOAL;
+        var pct = Math.min(100, Math.round((countN / goal) * 100));
+
+        var signers = (p.signatures && p.signatures.length)
+          ? p.signatures.map(function (s, i) {
+              var sigCell = s.sig
+                ? '<img class="pet-signer-sig" src="' + esc(s.sig) + '" alt="" />'
+                : '<span class="sig-no-img">NO IMAGE</span>';
+              return '<div class="pet-signer">' +
+                '<span class="pet-signer-no">' + (i + 1) + '</span>' +
+                '<div class="pet-signer-info"><strong>' + esc(s.name) + '</strong>' +
+                '<span>&nbsp;&middot;&nbsp;' + esc(s.enrollment) + ' &middot; Room ' + esc(s.room) +
+                ' &middot; ' + esc(s.email) + '</span></div>' +
+                sigCell +
+                '</div>';
+            }).join('')
+          : '<p class="pet-admin-empty">No signers yet on this petition.</p>';
+
+        return '<div class="pet-admin-card" data-id="' + esc(p.id) + '">' +
+          '<div class="pet-admin-header">' +
+            '<div class="pet-admin-header-left">' +
+              '<h3>' + esc(p.title) + '</h3>' +
+              '<div class="pet-admin-meta">' +
+                (p.facilities || []).join(' &middot; ') + '<br>' +
+                'Created ' + new Date(p.created).toLocaleString() + ' &middot;' +
+                (p.authorized ? ' <strong style="color:#1e7e34">AUTHORIZED</strong>' : ' <strong style="color:#c5221f">PENDING</strong>') +
+              '</div>' +
+            '</div>' +
+            '<div class="pet-admin-actions">' +
+              '<button type="button" class="auth-toggle ' + (p.authorized ? 'auth-on' : 'auth-off') + '" data-action="toggle-auth" data-id="' + esc(p.id) + '">' +
+                (p.authorized ? '&#10003; AUTHORIZED' : '&#9650; AUTHORIZE') +
+              '</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="pet-admin-body">' +
+            '<div class="pet-admin-stats">' + fmt(countN) + ' / ' + fmt(goal) + ' Signatures &middot; ' + pct + '% toward goal (' + fmt(goal) + ')</div>' +
+            '<div class="pet-admin-bar"><div class="pet-admin-bar-fill" style="width:' + pct + '%"></div></div>' +
+            '<div class="x-progress"><strong>' + fmt(countN) + '</strong> signed &middot; ' + fmt(Math.max(0, goal - countN)) + ' more needed</div>' +
+            '<button type="button" class="pet-signers-toggle" data-action="toggle-signers" data-id="' + esc(p.id) + '" aria-expanded="false">' +
+              'VIEW SIGNERS (' + countN + ') ' + '&#9662;' +
+            '</button>' +
+            '<div class="pet-signers-list" hidden>' + signers +
+              '<div class="pet-signers-toggle" style="padding:6px 0 0;margin:0" data-action="toggle-signers" data-id="' + esc(p.id) + '">HIDE SIGNERS &#9652;</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+  }
+
+  document.getElementById('adminUpcomingList').addEventListener('click', function (e) {
+    var auth = e.target.closest('[data-action="toggle-auth"]');
+    if (auth) {
+      var id = auth.getAttribute('data-id');
+      var pet = findUpcomingPetition(id);
+      if (pet) {
+        pet.authorized = !pet.authorized;
+        saveState();
+        renderAdmin();
+        renderFeed();
+        toast(pet.authorized ? 'PETITION AUTHORIZED — NOW PUBLIC' : 'PETITION UNAUTHORIZED — HIDDEN FROM FEED', !pet.authorized);
+      }
       return;
     }
-    container.innerHTML = '<div class="entries">' + list.map(function (s, i) {
-      var metaRows = '<span>' + esc(s.enrollment) + ' &middot; Room ' + esc(s.room) + '</span>';
-      if (s.comment) {
-        metaRows += '<span class="entry-comment">&quot;' + esc(s.comment) + '&quot;</span>';
-      }
-      var sigHtml = s.sig
-        ? '<img class="entry-sig" src="' + esc(s.sig) + '" alt="Signature of ' + esc(s.name) + '" />'
-        : '<span class="entry-no-sig">NO IMAGE (SEED)</span>';
-      return [
-        '<div class="entry">',
-        '<div class="entry-head">',
-        '<span class="entry-no">' + (list.length - i) + '</span>',
-        '<div class="entry-meta">',
-        '<strong>' + esc(s.name) + '</strong>',
-        metaRows,
-        '<span>' + new Date(s.ts).toLocaleString() + '</span>',
-        '</div>',
-        '</div>',
-        sigHtml,
-        '</div>'
-      ].join('');
-    }).join('') + '</div>';
-  }
+
+    var signers = e.target.closest('[data-action="toggle-signers"]');
+    if (signers) {
+      var card = signers.closest('.pet-admin-card');
+      var listEl = card.querySelector('.pet-signers-list');
+      var isOpen = !listEl.hidden;
+      listEl.hidden = isOpen;
+      var signerCount = card.querySelectorAll('.pet-signer').length;
+      card.querySelectorAll('[data-action="toggle-signers"]').forEach(function (t) {
+        t.setAttribute('aria-expanded', String(!isOpen));
+        t.innerHTML = isOpen ? ('VIEW SIGNERS (' + signerCount + ') \u25BE') : 'HIDE SIGNERS \u25B2';
+      });
+      return;
+    }
+  });
 
   /* ============ real-time sync (same tab + cross tab) ============ */
   function syncAll(animate) {
