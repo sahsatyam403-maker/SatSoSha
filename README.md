@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Petition to Restore Ethernet at GGSIPU EDC Hostels
 
 A full-stack **MERN** platform (MongoDB + Express + React + Node) that collects student
@@ -135,3 +136,6 @@ click **Allow** so the phones can reach the laptop.
 | GET    | `/api/admin/export.csv`   | session token*   | – (downloads the CSV)                         |
 
 \* Send the session token returned by `POST /api/admin/login` in the `x-admin-token` header.
+=======
+# SatSoSha
+>>>>>>> a5098f4e60ed6b2ab3840cfe20cd095c611cb677
